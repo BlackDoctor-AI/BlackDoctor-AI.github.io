@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DIV布局[HTML5+CSS3] | Qilu 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.盒子模型 2.弹性布局(Flex布局) 3.双飞翼布局 盒子模型   盒子定位 描述    静态static position的默认值，此时该CSS修饰元素按照标准流进行布局（包括float浮动）   相对relative 以标准流为参照物，使CSS修饰的元素偏移相对其在标准流的位置的距离。left或right属性指定追平偏移量，top和bottom属性指定垂直偏移量。   绝对absolu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DIV布局[HTML5+CSS3]">
+<meta property="og:url" content="http://example.com/HTML5+CSS3/2022/06/13/index5/index.html">
+<meta property="og:site_name" content="Qilu 博客">
+<meta property="og:description" content="1.盒子模型 2.弹性布局(Flex布局) 3.双飞翼布局 盒子模型   盒子定位 描述    静态static position的默认值，此时该CSS修饰元素按照标准流进行布局（包括float浮动）   相对relative 以标准流为参照物，使CSS修饰的元素偏移相对其在标准流的位置的距离。left或right属性指定追平偏移量，top和bottom属性指定垂直偏移量。   绝对absolu">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/HTML5+CSS3/2022/06/13/index5/images/%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80.png">
+<meta property="article:published_time" content="2022-06-13T02:19:38.745Z">
+<meta property="article:modified_time" content="2022-06-13T08:39:46.449Z">
+<meta property="article:author" content="Qilu Cui">
+<meta property="article:tag" content="DIV布局">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/HTML5+CSS3/2022/06/13/index5/images/%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Qilu 博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Qilu 博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-index5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/HTML5+CSS3/2022/06/13/index5/" class="article-date">
+  <time datetime="2022-06-13T02:19:38.745Z" itemprop="datePublished">2022-06-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/HTML5-CSS3/">HTML5+CSS3</a>►<a class="article-category-link" href="/categories/HTML5-CSS3/DIV%E5%B8%83%E5%B1%80/">DIV布局</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DIV布局[HTML5+CSS3]
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- # DIV布局 -->
+<p><a href="#DIV%E5%B8%83%E5%B1%801"><code>1.盒子模型</code></a> <a href="#DIV%E5%B8%83%E5%B1%802"><code>2.弹性布局(Flex布局)</code></a> <a href="#DIV%E5%B8%83%E5%B1%803"><code>3.双飞翼布局</code></a></p>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a><span id="DIV布局1">盒子模型</span></h2><table>
+<thead>
+<tr>
+<th align="left">盒子定位</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">静态static</td>
+<td align="center">position的默认值，此时该CSS修饰元素按照标准流进行布局（包括float浮动）</td>
+</tr>
+<tr>
+<td align="left">相对relative</td>
+<td align="center">以标准流为参照物，使CSS修饰的元素偏移相对其在标准流的位置的距离。left或right属性指定追平偏移量，top和bottom属性指定垂直偏移量。</td>
+</tr>
+<tr>
+<td align="left">绝对absolute</td>
+<td align="center">类似于relative但以浏览器或最近一个position不为static的父级元素为定位基准。left或right属性指定追平偏移量，top和bottom属性指定垂直偏移量。</td>
+</tr>
+<tr>
+<td align="left">固定fixed</td>
+<td align="center">以浏览器窗口为基准进行定位（移动滚动条不影响其位置）</td>
+</tr>
+</tbody></table>
+<h2 id="弹性布局（Flex布局）"><a href="#弹性布局（Flex布局）" class="headerlink" title="弹性布局（Flex布局）"></a><span id="DIV布局2">弹性布局（Flex布局）</span></h2><p>弹性布局也称flex布局</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="center">描述</th>
+<th align="center">类型</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">display</td>
+<td align="center">指定 HTML 元素的盒子类型</td>
+<td align="center"></td>
+<td align="left">当值为flex，表示使用的是弹性布局</td>
+</tr>
+<tr>
+<td align="left">flex-direction</td>
+<td align="center">指定弹性盒子中子元素的排列方式</td>
+<td align="center">容器属性</td>
+<td align="left">row、row-reverse、column、column-reverse、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">flex-wrap</td>
+<td align="center">设置当弹性盒子的子元素超出父容器时是否换行</td>
+<td align="center">容器属性</td>
+<td align="left">no-wrap、wrap、wrap-reverse、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">flex-flow</td>
+<td align="center">flex-direction 和 flex-wrap 两个属性的简写</td>
+<td align="center">容器属性</td>
+<td align="left">flex-flow: flex-direction flex-wrap;</td>
+</tr>
+<tr>
+<td align="left">justify-content</td>
+<td align="center">设置弹性盒子中元素在主轴（横轴）方向上的对齐方式</td>
+<td align="center">容器属性</td>
+<td align="left">flex-start、flex-end、center、space-between、space-around、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">align-items</td>
+<td align="center">设置弹性盒子中元素在侧轴（纵轴）方向上的对齐方式</td>
+<td align="center">容器属性</td>
+<td align="left">strtch、center、flex-start、flex-end、baseline、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">align-content</td>
+<td align="center">修改 flex-wrap 属性的行为，类似 align-items，但不是设置子元素对齐，而是设置行对齐</td>
+<td align="center">容器属性</td>
+<td align="left">stretch、center、flex-start、flex-end、space-between、space-around、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">order</td>
+<td align="center">设置弹性盒子中子元素的排列顺序</td>
+<td align="center">项目属性</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">align-self</td>
+<td align="center">在弹性盒子的子元素上使用，用来覆盖容器的 align-items 属性</td>
+<td align="center">项目属性</td>
+<td align="left">auto、stretch、center、flex-start、flex-end、baseline、initial、inherit</td>
+</tr>
+<tr>
+<td align="left">flex</td>
+<td align="center">设置弹性盒子中子元素如何分配空间</td>
+<td align="center">项目属性</td>
+<td align="left">flex: flex-grow(必须) flex-shrink(可选) flex-basis(可选);</td>
+</tr>
+<tr>
+<td align="left">flex-grow</td>
+<td align="center">设置弹性盒子的扩展比率</td>
+<td align="center">项目属性</td>
+<td align="left">默认0</td>
+</tr>
+<tr>
+<td align="left">flex-shrink</td>
+<td align="center">设置弹性盒子的收缩比率</td>
+<td align="center">项目属性</td>
+<td align="left">默认1</td>
+</tr>
+<tr>
+<td align="left">flex-basis</td>
+<td align="center">设置弹性盒子伸缩基准值</td>
+<td align="center">项目属性</td>
+<td align="left">默认auto</td>
+</tr>
+</tbody></table>
+<h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a><span id="DIV布局3">双飞翼布局</span></h2><p><strong>双飞翼布局要求</strong></p>
+<ul>
+<li>header和footer各自占领屏幕所有宽度，高度固定。</li>
+<li>中间的container是一个三栏布局。</li>
+<li>三栏布局两侧宽度固定不变，中间部分自动填充整个区域。</li>
+<li>中间部分的高度是三栏中最高的区域的高度。</li>
+</ul>
+<p><strong>双飞翼布局的实现</strong></p>
+<ul>
+<li>left、center、right三种都设置左浮动</li>
+<li>设置center宽度为100%</li>
+<li>设置负边距，left设置负边距为100%，right设置负边距为自身宽度</li>
+<li>设置content的margin值为左右两个侧栏留出空间，margin值大小为left和right宽度<br><img src="images/%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80.png" alt="双飞翼布局"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">min-width</span>: <span class="number">550px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#header</span>,</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#footer</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">29</span>, <span class="number">27</span>, <span class="number">27</span>, <span class="number">0.726</span>);</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#container</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.column</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#left</span>, <span class="selector-id">#right</span>, <span class="selector-id">#center</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#center</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">206</span>, <span class="number">201</span>, <span class="number">201</span>);</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#left</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">95</span>, <span class="number">179</span>, <span class="number">235</span>, <span class="number">0.972</span>);</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-id">#right</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">231</span>, <span class="number">105</span>, <span class="number">2</span>);</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.content</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">150px</span> <span class="number">0</span> <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;header&quot;</span>&gt;</span>#header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;center&quot;</span> <span class="attr">class</span>=<span class="string">&quot;column&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>#center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;left&quot;</span> <span class="attr">class</span>=<span class="string">&quot;column&quot;</span>&gt;</span>#left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;right&quot;</span> <span class="attr">class</span>=<span class="string">&quot;column&quot;</span>&gt;</span>#right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>#footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/HTML5+CSS3/2022/06/13/index5/" data-id="cl4drrks80006gspyhx3u52dw" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIV%E5%B8%83%E5%B1%80/" rel="tag">DIV布局</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/HTML5+CSS3/2022/06/13/index7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">新</strong>
+      <div class="article-nav-title">
+        
+          音视频的基本操作[HTML5+CSS3]
+        
+      </div>
+    </a>
+  
+  
+    <a href="/HTML5+CSS3/2022/06/13/index4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">旧</strong>
+      <div class="article-nav-title">CSS3新特性[HTML5+CSS3]</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/">HTML5+CSS3</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/CSS3%E6%96%B0%E7%89%B9%E6%80%A7/">CSS3新特性</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/CSS%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F%E7%BC%96%E5%86%99/">CSS基本样式编写</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/Canvas/">Canvas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/DIV%E5%B8%83%E5%B1%80/">DIV布局</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML5-CSS3/%E9%9F%B3%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">音视频的基本操作</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/">大前端技术栈</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3%E6%96%B0%E7%89%B9%E6%80%A7/" rel="tag">CSS3新特性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F%E7%BC%96%E5%86%99/" rel="tag">CSS基本样式编写</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/" rel="tag">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIV%E5%B8%83%E5%B1%80/" rel="tag">DIV布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/" rel="tag">大前端技术栈</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="tag">音视频的基本操作</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS3%E6%96%B0%E7%89%B9%E6%80%A7/" style="font-size: 10px;">CSS3新特性</a> <a href="/tags/CSS%E5%9F%BA%E6%9C%AC%E6%A0%B7%E5%BC%8F%E7%BC%96%E5%86%99/" style="font-size: 10px;">CSS基本样式编写</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/DIV%E5%B8%83%E5%B1%80/" style="font-size: 10px;">DIV布局</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/" style="font-size: 10px;">大前端技术栈</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" style="font-size: 10px;">音视频的基本操作</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/zh-CN/2022/06/13/index/">大前端技术栈</a>
+          </li>
+        
+          <li>
+            <a href="/HTML5+CSS3/2022/06/13/index8/">Canvas[HTML5+CSS3]</a>
+          </li>
+        
+          <li>
+            <a href="/HTML5+CSS3/2022/06/13/index7/">音视频的基本操作[HTML5+CSS3]</a>
+          </li>
+        
+          <li>
+            <a href="/HTML5+CSS3/2022/06/13/index5/">DIV布局[HTML5+CSS3]</a>
+          </li>
+        
+          <li>
+            <a href="/HTML5+CSS3/2022/06/13/index4/">CSS3新特性[HTML5+CSS3]</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Qilu Cui<br>
+      框架 <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
