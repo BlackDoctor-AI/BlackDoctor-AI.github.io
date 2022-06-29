@@ -7,15 +7,15 @@
   
   <title>Qilu 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Canvas动画、游戏、演示              body {           margin: 0px;           padding: 0px;         }">
+  <meta name="description" content="Canvas动画、游戏、演示        body {       margin: 0px;       padding: 0px;     }     .box1, .box2 {       text-align: center;       border: 1px solid #000;       display: inline-block;       he">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Qilu 博客">
 <meta property="og:url" content="https://blackdoctor-ai.github.io/page/canvas.html">
 <meta property="og:site_name" content="Qilu 博客">
-<meta property="og:description" content="Canvas动画、游戏、演示              body {           margin: 0px;           padding: 0px;         }">
+<meta property="og:description" content="Canvas动画、游戏、演示        body {       margin: 0px;       padding: 0px;     }     .box1, .box2 {       text-align: center;       border: 1px solid #000;       display: inline-block;       he">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-14T02:56:26.554Z">
-<meta property="article:modified_time" content="2022-06-14T02:56:26.554Z">
+<meta property="article:published_time" content="2022-06-29T02:05:49.634Z">
+<meta property="article:modified_time" content="2022-06-29T02:05:49.634Z">
 <meta property="article:author" content="Qilu Cui">
 <meta property="article:tag" content="博客 Hexo 前端">
 <meta name="twitter:card" content="summary">
@@ -70,7 +70,7 @@
         <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/page/canvas.html" class="article-date">
-  <time datetime="2022-06-14T02:56:26.554Z" itemprop="datePublished">2022-06-14</time>
+  <time datetime="2022-06-29T02:05:49.634Z" itemprop="datePublished">2022-06-29</time>
 </a>
     
   </div>
@@ -82,26 +82,311 @@
         <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas动画、游戏、演示</title>
-    <style>
-        body {
-          margin: 0px;
-          padding: 0px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas动画、游戏、演示</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .box1, .box2 {
+      text-align: center;
+      border: 1px solid #000;
+      display: inline-block;
+      height: 310px;
+      width: 310px;
+      padding: 10px;
+    }
+    .box3 {
+      text-align: center;
+      border: 1px solid #000;
+      display: inline-block;
+      height: 210px;
+      width: 810px;
+      padding: 10px;
+    }
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
 </head>
 <body>
+  <!-- 动画 -->
+  <!-- 示例--太阳系模拟动画 -->
+  <div class="box1">
+    <canvas id="canvasbox1" width="300" height="300"></canvas>
+    <p>太阳系模拟动画</p>
+  </div>
+
+  <!-- 时钟动画 -->
+  <div class="box2">
+    <canvas id="canvasbox2" width="300" height="300"></canvas>
+    <p>时钟动画</p>
+  </div>
+
+  <!-- 循环全景照片 -->
+  <div class="box3">
+    <canvas id="canvasbox3" width="800" height="200"></canvas>
+    <p>循环全景照片</p>
+  </div>
+
+  <script>
+    var sun = new Image();
+    var moon = new Image();
+    var earth = new Image();
+
+    var ctx = document.getElementById('canvasbox1').getContext('2d');
+
+    function init() {
+      sun.src = 'https://www.twle.cn/static/i/canvas/canvas_animation_sun.png';
+      moon.src = 'https://www.twle.cn/static/i/canvas/canvas_animation_moon.png';
+      earth.src = 'https://www.twle.cn/static/i/canvas/canvas_animation_earth.png';
+      setInterval(() => {
+        draw();
+      },100) // 1000ms==1s
+    }
+
+    function draw() {
+      ctx.globalCompositeOperation = 'destination-over' // 显示方式：destination-over---在源图像上显示目标图像。
+      ctx.clearRect(0,0,400,400) // 在给定的矩形内清除指定的像素。
+
+      ctx.fillStyle = 'rgba(0,0,0,0.4)'; // 设置或返回用于   填充绘画   的颜色、渐变或模式。
+      ctx.strokeStyle = 'rgba(0,153,255,0.4)'; // 设置或返回用于   笔触    的颜色、渐变或模式。
+      ctx.save();  // 保存当前环境的状态。
+      ctx.translate(150,150); // 重新映射画布上的 (200,200) 位置。
+
+      // Earth
+      var time = new Date();
+      ctx.rotate(((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds()); // 旋转当前绘图。
+      ctx.translate(105,0);  
+      ctx.fillRect(0,-12,50,24); // 地球背光面
+      ctx.drawImage(earth,-12,-12);
+
+      // Moon
+      ctx.rotate(((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds());
+      ctx.translate(0,28.5);
+      ctx.drawImage(moon,-3.5,-3.5);
+      ctx.restore();
+
+      ctx.restore(); // 返回之前保存过的路径状态和属性。
+
+      // 画轨迹
+      ctx.beginPath(); // 起始一条路径，或重置当前路径。
+      ctx.arc(150,150,105,0,Math.PI*2,false); // 创建弧/曲线（用于创建圆形或部分圆）。context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+      ctx.stroke(); // 绘制已定义的路径。
+
+      ctx.drawImage(sun,0,0,300,300);  // 向画布上绘制图像、画布或视频。
+
+      window.requestAnimationFrame(draw); // 若你想在浏览器下次重绘之前继续更新下一帧动画，那么回调函数自身必须再次调用window.requestAnimationFrame()
+    }
+
+    init();
+  </script>
+  <script>
+    // function init() {
+    //   setInterval(() => {
+    //     clock();
+    //   },1000)
+    // }
+    function clock(){
+      var now = new Date();
+      var ctx = document.getElementById('canvasbox2').getContext('2d');
+      ctx.save(); // 保存当前环境的状态。
+      ctx.clearRect(0,0,300,300);
+      ctx.translate(150,150);
+      ctx.scale(0.4,0.4); // 缩放当前绘图至更大或更小。
+      // 画表盘
+      ctx.rotate(-Math.PI/2);
+      ctx.strokeStyle = "black";
+      ctx.fillStyle = "white";
+      ctx.lineCap = "round"; // 设置或返回线条的结束端点样式。
+
+    // 时针
+    ctx.save();
+    ctx.lineWidth = 8; // 设置或返回当前的线条宽度。
+    for (var i=0;i<12;i++){
+      ctx.beginPath();
+      ctx.rotate(Math.PI/6);
+      ctx.moveTo(100,0); // 把路径移动到画布中的指定点，不创建线条。
+      ctx.lineTo(120,0); // 添加一个新点，然后在画布中创建从该点到最后指定点的线条。
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // 分针+秒针
+    ctx.save();
+    ctx.lineWidth = 5;
+    for (i=0;i<60;i++){
+      if (i%5!=0) {
+        ctx.beginPath();
+        ctx.moveTo(117,0);
+        ctx.lineTo(120,0);
+        ctx.stroke();
+      }
+      ctx.rotate(Math.PI/30);
+    }
+    ctx.restore();
+
+    // 获取当前时间的  时  分  秒
+    var sec = now.getSeconds();
+    var min = now.getMinutes();
+    var hr  = now.getHours();
+    hr = hr>=12 ? hr-12 : hr;
+
+    // 画针头
+    ctx.fillStyle = "black";
+
+    // 时针
+    ctx.save();
+    ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
+    ctx.lineWidth = 14;
+    ctx.beginPath();
+    ctx.moveTo(-20,0);
+    ctx.lineTo(80,0);
+    ctx.stroke();
+    ctx.restore();
+
+    // 分针
+    ctx.save();
+    ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(-28,0);
+    ctx.lineTo(112,0);
+    ctx.stroke();
+    ctx.restore();
+
+    // 秒针
+    ctx.save();
+    ctx.rotate(sec * Math.PI/30);
+    ctx.strokeStyle = "#D40000";
+    ctx.fillStyle = "#D40000";
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(-30,0);
+    ctx.lineTo(83,0);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0,0,10,0,Math.PI*2,true);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(95,0,10,0,Math.PI*2,true);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.arc(0,0,3,0,Math.PI*2,true);
+    ctx.fill();
+    ctx.restore();
+
+    // 表盘外轮廓
+    ctx.beginPath();
+    ctx.lineWidth = 14;
+    ctx.strokeStyle = '#325FA2';
+    ctx.arc(0,0,142,0,Math.PI*2,true);
+    ctx.stroke();
     
+    ctx.restore();
+
+    window.requestAnimationFrame(clock);
+  }
+  window.requestAnimationFrame(clock);
+  // init();
+  </script>
+  <script>
+    var img = new Image();
+
+    // User Variables - customize these to change the image being scrolled, its
+    // direction, and the speed.
+
+    img.src = 'https://mdn.mozillademos.org/files/4553/Capitan_Meadows,_Yosemite_National_Park.jpg';
+    var CanvasXSize = 800;
+    var CanvasYSize = 200;
+    var speed = 30; // lower is faster
+    var scale = 1.05;
+    var y = -4.5; // vertical offset
+
+    // Main program
+
+    var dx = 0.75;
+    var imgW;
+    var imgH;
+    var x = 0;
+    var clearX;
+    var clearY;
+    var ctx3;
+
+    img.onload = function() {
+        imgW = img.width * scale;
+        imgH = img.height * scale;
+
+        if (imgW > CanvasXSize) {
+            // image larger than canvas
+            x = CanvasXSize - imgW;
+        }
+        if (imgW > CanvasXSize) {
+            // image width larger than canvas
+            clearX = imgW;
+        } else {
+            clearX = CanvasXSize;
+        }
+        if (imgH > CanvasYSize) {
+            // image height larger than canvas
+            clearY = imgH;
+        } else {
+            clearY = CanvasYSize;
+        }
+
+        // get canvas context
+        ctx3 = document.getElementById('canvasbox3').getContext('2d');
+
+        // set refresh rate
+        return setInterval(draw3, speed);
+    }
+
+    function draw3() {
+        ctx3.clearRect(0, 0, clearX, clearY); // clear the canvas
+
+        // if image is <= Canvas Size
+        if (imgW <= CanvasXSize) {
+            // reset, start from beginning
+            if (x > CanvasXSize) {
+                x = -imgW + x;
+            }
+            // draw additional image1
+            if (x > 0) {
+                ctx.drawImage(img, -imgW + x, y, imgW, imgH);
+            }
+            // draw additional image2
+            if (x - imgW > 0) {
+                ctx.drawImage(img, -imgW * 2 + x, y, imgW, imgH);
+            }
+        }
+
+        // image is > Canvas Size
+        else {
+            // reset, start from beginning
+            if (x > (CanvasXSize)) {
+                x = CanvasXSize - imgW;
+            }
+            // draw aditional image
+            if (x > (CanvasXSize-imgW)) {
+                ctx3.drawImage(img, x - imgW + 1, y, imgW, imgH);
+            }
+        }
+        // draw image
+        ctx3.drawImage(img, x, y,imgW, imgH);
+        // amount to move
+        x += dx;
+    }
+  </script> 
 </body>
 </html>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blackdoctor-ai.github.io/page/canvas.html" data-id="cl4dudal50000ngpygygx3vez" class="article-share-link">分享</a>
+      <a data-url="https://blackdoctor-ai.github.io/page/canvas.html" data-id="cl4yymn8e00009cpyhpyafyaf" class="article-share-link">分享</a>
       
       
     </footer>
